@@ -1,0 +1,8 @@
+logging:
+  level:
+    com: INFO
+    org.springframework: INFO
+
+server.port: 8085
+  
+management.endpoints.web.exposure.include: *
