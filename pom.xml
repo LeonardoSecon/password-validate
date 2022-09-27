@@ -35,6 +35,7 @@
         <module>domain</module>
         <module>validate</module>
         <module>rest-api-validate-password</module>
+        <module>integration-test</module>
     </modules>
 
     <dependencies>

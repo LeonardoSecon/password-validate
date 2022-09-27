@@ -1,0 +1,8 @@
+logging:
+  level:
+    br: INFO
+    org.springframework: INFO
+
+server:
+  servlet:
+    context-path: /validate-api
