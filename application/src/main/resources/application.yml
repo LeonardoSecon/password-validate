@@ -8,4 +8,4 @@ server:
     context-path: /validate-api
 
 
-server.port: 8085
+server.port: 8080

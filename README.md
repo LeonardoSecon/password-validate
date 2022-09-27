@@ -11,6 +11,24 @@ Api para validar senha.
 4. Subir a aplicação (lendo o arquivo application-local.yml):
    `./mvnw spring-boot:run -Dspring.profiles.active=local`
 
+# Criar a imagem
+docker build \
+--tag password-validate \        
+--build-arg VERSION=001 \         
+--build-arg REVISION=REVISION \         
+--build-arg PROJECT_NAME=password-validate \     
+-f devops/Dockerfile .
+
+# Executar a imagem gerada
+docker run \     
+-e PROJECT_NAME=password-validate \         
+-e VERSION=001 \
+-e REVISION= \
+-e javaXms='-Xms1024m' \         
+-e javaXmx='-Xmx1536m' \      
+-e environment=local \         
+-p 8070:8080 \     
+password-validate
 
 ### ok
 1. arquitetura hexagonal

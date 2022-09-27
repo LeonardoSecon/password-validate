@@ -3,6 +3,6 @@ logging:
     com: INFO
     org.springframework: INFO
 
-server.port: 8085
+server.port: 8080
   
 management.endpoints.web.exposure.include: *
