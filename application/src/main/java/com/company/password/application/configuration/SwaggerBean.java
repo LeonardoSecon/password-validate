@@ -24,7 +24,7 @@ public class SwaggerBean {
 
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder().version("1.0")
-                .title("Password Validate API")
-                .description("Password Validate API").build();
+                .title("PasswordModel Validate API")
+                .description("PasswordModel Validate API").build();
     }
 }

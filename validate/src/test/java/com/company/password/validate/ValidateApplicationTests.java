@@ -1,5 +1,6 @@
 package com.company.password.validate;
 
+import com.company.password.domain.domain.model.PasswordModel;
 import com.company.password.domain.domain.port.ValidatePasswordPort;
 import com.company.password.validate.adapter.ValidatePasswordAdapter;
 import org.junit.jupiter.api.Assertions;
@@ -21,7 +22,7 @@ class ValidateApplicationTests {
     @ParameterizedTest
     @MethodSource("invalidPasswordProvider")
     void TestInvalidPasswordFail(String password) {
-      Assertions.assertFalse(validatePasswordPort.validatePassword(password));
+      Assertions.assertFalse(validatePasswordPort.validatePassword(PasswordModel.builder().value(password).build()));
     }
 
     private static Stream<Arguments> invalidPasswordProvider() {
@@ -42,7 +43,7 @@ class ValidateApplicationTests {
     @ParameterizedTest
     @MethodSource("validPasswordProvider")
     void TestInvalidPasswordSuccessful(String password) {
-        Assertions.assertTrue(validatePasswordPort.validatePassword(password));
+        Assertions.assertTrue(validatePasswordPort.validatePassword(PasswordModel.builder().value(password).build()));
     }
 
     private static Stream<Arguments> validPasswordProvider() {

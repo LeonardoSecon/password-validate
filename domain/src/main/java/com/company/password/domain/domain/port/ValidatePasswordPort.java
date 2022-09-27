@@ -1,5 +1,8 @@
 package com.company.password.domain.domain.port;
 
+import com.company.password.domain.domain.model.PasswordModel;
+
 public interface ValidatePasswordPort {
-    boolean validatePassword(String password);
+
+    boolean validatePassword(PasswordModel password);
 }

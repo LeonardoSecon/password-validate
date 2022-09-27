@@ -7,6 +7,6 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @ToString
-public class Password {
+public class PasswordModel {
     private String value;
 }

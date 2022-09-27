@@ -33,5 +33,24 @@ public class ValidatePasswordApiResourceTest {
                 .andExpect(content().string("true"));
     }
 
+    @Test
+    public void validatePasswordNullPasswordAndThenStatus400()
+            throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders
+                        .post("/v1/validate/validate-password"))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("false"));
+    }
 
+    @Test
+    public void validatePasswordInvalidAndThenStatus400()
+            throws Exception {
+        String password = "AbTp9 fok";
+        mockMvc.perform(MockMvcRequestBuilders
+                        .post("/v1/validate/validate-password")
+                        .contentType(MediaType.TEXT_PLAIN)
+                        .content(password))
+                .andExpect(status().isOk())
+                .andExpect(content().string("false"));
+    }
 }
