@@ -27,8 +27,24 @@ docker run \
 -e javaXms='-Xms1024m' \         
 -e javaXmx='-Xmx1536m' \      
 -e environment=local \         
--p 8070:8080 \     
+-p 8080:8080 \     
 password-validate
+
+### Swagger
+http://localhost:8080/validate-api/v2/api-docs
+
+http://localhost:8080/validate-api/swagger-ui/#/Validate
+
+## Request
+### Exemplo request de senha valida
+curl --location --request POST 'http://localhost:8080/validate-api/v1/validate/validate-password' \
+--header 'Content-Type: text/plain' \
+--data-raw 'AbTp9!fok'
+
+### Exemplo request de senha inválida
+curl --location --request POST 'http://localhost:8080/validate-api/v1/validate/validate-password' \
+--header 'Content-Type: text/plain' \
+--data-raw 'AbTp9 fok'
 
 ### ok
 1. arquitetura hexagonal
