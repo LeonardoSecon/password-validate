@@ -8,7 +8,7 @@ Api para validar senha.
 2. Baixar o projeto (git clone).
 3. Na linha de comando e na raiz do projeto, gerar o jar do projeto:
    `./mvnw clean install`
-4. Subir a aplicação (lendo o arquivo application-local.yml):
+4. Subir a aplicação a partir do modulo application(lendo o arquivo application-local.yml):
    `./mvnw spring-boot:run -Dspring.profiles.active=local`
 
 # Criar a imagem
@@ -37,22 +37,33 @@ http://localhost:8080/validate-api/swagger-ui/#/Validate
 
 ## Request
 ### Exemplo request de senha valida
-curl --location --request POST 'http://localhost:8080/validate-api/v1/validate/validate-password' \
+curl --location --request POST 'http://localhost:8080/validate-api/v1/password/validation' \
 --header 'Content-Type: text/plain' \
 --data-raw 'AbTp9!fok'
 
 ### Exemplo request de senha inválida
-curl --location --request POST 'http://localhost:8080/validate-api/v1/validate/validate-password' \
+curl --location --request POST 'http://localhost:8080/validate-api/v1/password/validation' \
 --header 'Content-Type: text/plain' \
 --data-raw 'AbTp9 fok'
 
-### ok
-1. arquitetura hexagonal
+### 
+1. Arquitetura
+   * Utilizando arquitetura hexagonal por conta da flexibilidade de implementação de modulos
+   * Escolhido request 
 2. swagger
-
-
-### TODO
-1. Adicionar logs
-2. Adicionar validação para body null
-3. docker file
-4. tests
+   * Documentacao expondo api rest
+3. Observabilidade 
+   * Implementacao de logs
+   * APM, o apm pode se adicionado posteriormente rodando junto com a aplicação passando o jar do APM escolhido no run da aplicação
+4. Patterns
+   1. SOLID
+      * Utilizando os conceitos de SOLID
+5. Clean code 
+   * Utilizado sonar para qualidade de código
+6. Tests
+   * Criado módulo de testes de integracao - integration-tests
+   * Criado tests para modulo validation
+7. Design de api
+   * Utilizado método post para nao expor o dado
+   * Retorno 200 para resposta valida com body valor true
+   * Retorno 400 para resposta invalida com body valor false

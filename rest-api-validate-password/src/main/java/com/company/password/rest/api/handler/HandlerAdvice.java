@@ -18,7 +18,7 @@ public class HandlerAdvice {
             = { Exception.class })
     protected ResponseEntity<Object> handleInvalidBody(
             RuntimeException ex, WebRequest request) {
-        LOG.error("Error request");
+        LOG.error("Request validatePassword error request", ex);
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(false);
     }

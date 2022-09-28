@@ -26,7 +26,7 @@ public class ValidatePasswordApiResourceTest {
             throws Exception {
         String password = "AbTp9!fok";
         mockMvc.perform(MockMvcRequestBuilders
-                        .post("/v1/validate/validate-password")
+                        .post("/v1/password/validation")
                         .contentType(MediaType.TEXT_PLAIN)
                 .content(password))
                 .andExpect(status().isOk())
@@ -37,7 +37,7 @@ public class ValidatePasswordApiResourceTest {
     public void validatePasswordNullPasswordAndThenStatus400()
             throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
-                        .post("/v1/validate/validate-password"))
+                        .post("/v1/password/validation"))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("false"));
     }
@@ -47,10 +47,10 @@ public class ValidatePasswordApiResourceTest {
             throws Exception {
         String password = "AbTp9 fok";
         mockMvc.perform(MockMvcRequestBuilders
-                        .post("/v1/validate/validate-password")
+                        .post("/v1/password/validation")
                         .contentType(MediaType.TEXT_PLAIN)
                         .content(password))
-                .andExpect(status().isOk())
+                .andExpect(status().isBadRequest())
                 .andExpect(content().string("false"));
     }
 }

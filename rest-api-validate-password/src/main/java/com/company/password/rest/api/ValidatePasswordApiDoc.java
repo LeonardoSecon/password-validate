@@ -1,6 +1,5 @@
 package com.company.password.rest.api;
 
-import com.company.password.rest.dto.PasswordDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

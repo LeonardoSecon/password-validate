@@ -13,7 +13,6 @@ import static com.company.password.validate.constant.RegexConst.REGEX_PASSWORD;
 @Service
 public class ValidatePasswordAdapter implements ValidatePasswordPort {
 
-    // private static final Logger LOG = LoggerFactory.getLogger(ValidatePasswordAdapter.class);
     @Override
     public boolean validatePassword(PasswordModel password) {
         Pattern pattern = Pattern.compile(REGEX_PASSWORD);
