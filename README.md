@@ -67,3 +67,4 @@ curl --location --request POST 'http://localhost:8080/validate-api/v1/password/v
    * Utilizado método post para nao expor o dado
    * Retorno 200 para resposta valida com body valor true
    * Retorno 400 para resposta invalida com body valor false
+   * A proposta é receber uma string com o valor da senha e obter a resposta, caso há nessecidade de receber um json e ou a alteração para um método GET, é simples a alteração ou .
